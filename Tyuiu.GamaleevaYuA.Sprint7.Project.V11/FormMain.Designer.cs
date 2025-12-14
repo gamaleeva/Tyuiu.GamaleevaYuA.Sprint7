@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain_GYA));
             panelButtonsHelp_GYA = new Panel();
+            buttonAbout_GYA = new Button();
+            buttonSaveFile_GYA = new Button();
+            buttonAddFile_GYA = new Button();
             panelButtonsFunctional_GYA = new Panel();
             panelStatus_GYA = new Panel();
             panelToolbar_GYA = new Panel();
@@ -43,6 +46,7 @@
             ColumnLastName = new DataGridViewTextBoxColumn();
             ColumnDepartament = new DataGridViewTextBoxColumn();
             ColumnPost = new DataGridViewTextBoxColumn();
+            panelButtonsHelp_GYA.SuspendLayout();
             panelToolbar_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).BeginInit();
             panelMainInformation_GYA.SuspendLayout();
@@ -52,11 +56,43 @@
             // panelButtonsHelp_GYA
             // 
             panelButtonsHelp_GYA.BackColor = Color.FromArgb(212, 212, 212);
+            panelButtonsHelp_GYA.Controls.Add(buttonAbout_GYA);
+            panelButtonsHelp_GYA.Controls.Add(buttonSaveFile_GYA);
+            panelButtonsHelp_GYA.Controls.Add(buttonAddFile_GYA);
             panelButtonsHelp_GYA.Dock = DockStyle.Top;
             panelButtonsHelp_GYA.Location = new Point(0, 0);
             panelButtonsHelp_GYA.Name = "panelButtonsHelp_GYA";
             panelButtonsHelp_GYA.Size = new Size(1088, 26);
             panelButtonsHelp_GYA.TabIndex = 0;
+            // 
+            // buttonAbout_GYA
+            // 
+            buttonAbout_GYA.Location = new Point(119, 0);
+            buttonAbout_GYA.Name = "buttonAbout_GYA";
+            buttonAbout_GYA.Size = new Size(50, 26);
+            buttonAbout_GYA.TabIndex = 2;
+            buttonAbout_GYA.Text = "About";
+            buttonAbout_GYA.UseVisualStyleBackColor = true;
+            buttonAbout_GYA.Click += buttonAbout_GYA_Click;
+            // 
+            // buttonSaveFile_GYA
+            // 
+            buttonSaveFile_GYA.Location = new Point(59, 0);
+            buttonSaveFile_GYA.Name = "buttonSaveFile_GYA";
+            buttonSaveFile_GYA.Size = new Size(54, 26);
+            buttonSaveFile_GYA.TabIndex = 1;
+            buttonSaveFile_GYA.Text = "Save";
+            buttonSaveFile_GYA.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddFile_GYA
+            // 
+            buttonAddFile_GYA.Location = new Point(3, 0);
+            buttonAddFile_GYA.Name = "buttonAddFile_GYA";
+            buttonAddFile_GYA.Size = new Size(50, 26);
+            buttonAddFile_GYA.TabIndex = 0;
+            buttonAddFile_GYA.Text = "Open";
+            buttonAddFile_GYA.UseVisualStyleBackColor = true;
+            buttonAddFile_GYA.Click += buttonAddFile_GYA_Click;
             // 
             // panelButtonsFunctional_GYA
             // 
@@ -174,6 +210,7 @@
             Name = "FormMain_GYA";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Спринт 7 | Вариант 11 | Гамалеева Ю.А.";
+            panelButtonsHelp_GYA.ResumeLayout(false);
             panelToolbar_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).EndInit();
             panelMainInformation_GYA.ResumeLayout(false);
@@ -197,5 +234,8 @@
         private DataGridViewTextBoxColumn ColumnDepartament;
         private DataGridViewTextBoxColumn ColumnPost;
         private PictureBox pictureBoxTools_GYA;
+        private Button buttonAbout_GYA;
+        private Button buttonSaveFile_GYA;
+        private Button buttonAddFile_GYA;
     }
 }

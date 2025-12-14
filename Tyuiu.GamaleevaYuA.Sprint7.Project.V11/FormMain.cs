@@ -22,5 +22,16 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
         {
             pictureBoxTools_GYA.Cursor = Cursors.Hand;
         }
+
+        private void buttonAbout_GYA_Click(object sender, EventArgs e)
+        {
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
+        }
+
+        private void buttonAddFile_GYA_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
