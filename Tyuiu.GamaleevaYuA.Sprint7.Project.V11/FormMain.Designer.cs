@@ -39,18 +39,22 @@
             pictureBoxTools_GYA = new PictureBox();
             splitterTools_GYA = new Splitter();
             panelMainInformation_GYA = new Panel();
-            dataGridViewInformaion = new DataGridView();
+            dataGridViewInformation_GYA = new DataGridView();
             ColumnKey = new DataGridViewTextBoxColumn();
             ColumnSurname = new DataGridViewTextBoxColumn();
             ColumnName = new DataGridViewTextBoxColumn();
             ColumnLastName = new DataGridViewTextBoxColumn();
             ColumnDepartament = new DataGridViewTextBoxColumn();
             ColumnPost = new DataGridViewTextBoxColumn();
+            openFileDialogMain_GYA = new OpenFileDialog();
+            saveFileDialogMain_GYA = new SaveFileDialog();
+            buttonSearch_GYA = new Button();
             panelButtonsHelp_GYA.SuspendLayout();
+            panelButtonsFunctional_GYA.SuspendLayout();
             panelToolbar_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).BeginInit();
             panelMainInformation_GYA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewInformaion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).BeginInit();
             SuspendLayout();
             // 
             // panelButtonsHelp_GYA
@@ -97,6 +101,7 @@
             // panelButtonsFunctional_GYA
             // 
             panelButtonsFunctional_GYA.BackColor = Color.FromArgb(236, 236, 236);
+            panelButtonsFunctional_GYA.Controls.Add(buttonSearch_GYA);
             panelButtonsFunctional_GYA.Dock = DockStyle.Top;
             panelButtonsFunctional_GYA.Location = new Point(0, 26);
             panelButtonsFunctional_GYA.Name = "panelButtonsFunctional_GYA";
@@ -147,24 +152,24 @@
             // panelMainInformation_GYA
             // 
             panelMainInformation_GYA.BackColor = SystemColors.ButtonHighlight;
-            panelMainInformation_GYA.Controls.Add(dataGridViewInformaion);
+            panelMainInformation_GYA.Controls.Add(dataGridViewInformation_GYA);
             panelMainInformation_GYA.Dock = DockStyle.Fill;
             panelMainInformation_GYA.Location = new Point(24, 109);
             panelMainInformation_GYA.Name = "panelMainInformation_GYA";
             panelMainInformation_GYA.Size = new Size(1064, 451);
             panelMainInformation_GYA.TabIndex = 5;
             // 
-            // dataGridViewInformaion
+            // dataGridViewInformation_GYA
             // 
-            dataGridViewInformaion.BackgroundColor = SystemColors.ButtonFace;
-            dataGridViewInformaion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewInformaion.Columns.AddRange(new DataGridViewColumn[] { ColumnKey, ColumnSurname, ColumnName, ColumnLastName, ColumnDepartament, ColumnPost });
-            dataGridViewInformaion.Dock = DockStyle.Fill;
-            dataGridViewInformaion.Location = new Point(0, 0);
-            dataGridViewInformaion.Name = "dataGridViewInformaion";
-            dataGridViewInformaion.RowHeadersVisible = false;
-            dataGridViewInformaion.Size = new Size(1064, 451);
-            dataGridViewInformaion.TabIndex = 0;
+            dataGridViewInformation_GYA.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewInformation_GYA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInformation_GYA.Columns.AddRange(new DataGridViewColumn[] { ColumnKey, ColumnSurname, ColumnName, ColumnLastName, ColumnDepartament, ColumnPost });
+            dataGridViewInformation_GYA.Dock = DockStyle.Fill;
+            dataGridViewInformation_GYA.Location = new Point(0, 0);
+            dataGridViewInformation_GYA.Name = "dataGridViewInformation_GYA";
+            dataGridViewInformation_GYA.RowHeadersVisible = false;
+            dataGridViewInformation_GYA.Size = new Size(1064, 451);
+            dataGridViewInformation_GYA.TabIndex = 0;
             // 
             // ColumnKey
             // 
@@ -196,6 +201,20 @@
             ColumnPost.HeaderText = "Должность";
             ColumnPost.Name = "ColumnPost";
             // 
+            // openFileDialogMain_GYA
+            // 
+            openFileDialogMain_GYA.FileName = "openFileDialog1";
+            // 
+            // buttonSearch_GYA
+            // 
+            buttonSearch_GYA.Location = new Point(992, 33);
+            buttonSearch_GYA.Name = "buttonSearch_GYA";
+            buttonSearch_GYA.Size = new Size(75, 23);
+            buttonSearch_GYA.TabIndex = 0;
+            buttonSearch_GYA.Text = "button1";
+            buttonSearch_GYA.UseVisualStyleBackColor = true;
+            buttonSearch_GYA.Click += buttonSearch_GYA_Click;
+            // 
             // FormMain_GYA
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -211,10 +230,11 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Спринт 7 | Вариант 11 | Гамалеева Ю.А.";
             panelButtonsHelp_GYA.ResumeLayout(false);
+            panelButtonsFunctional_GYA.ResumeLayout(false);
             panelToolbar_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).EndInit();
             panelMainInformation_GYA.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewInformaion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).EndInit();
             ResumeLayout(false);
         }
 
@@ -226,7 +246,7 @@
         private Panel panelToolbar_GYA;
         private Splitter splitterTools_GYA;
         private Panel panelMainInformation_GYA;
-        private DataGridView dataGridViewInformaion;
+        private DataGridView dataGridViewInformation_GYA;
         private DataGridViewTextBoxColumn ColumnKey;
         private DataGridViewTextBoxColumn ColumnSurname;
         private DataGridViewTextBoxColumn ColumnName;
@@ -237,5 +257,8 @@
         private Button buttonAbout_GYA;
         private Button buttonSaveFile_GYA;
         private Button buttonAddFile_GYA;
+        private OpenFileDialog openFileDialogMain_GYA;
+        private SaveFileDialog saveFileDialogMain_GYA;
+        private Button buttonSearch_GYA;
     }
 }
