@@ -34,6 +34,7 @@
             buttonSaveFile_GYA = new Button();
             buttonAddFile_GYA = new Button();
             panelButtonsFunctional_GYA = new Panel();
+            buttonSearch_GYA = new Button();
             panelStatus_GYA = new Panel();
             panelToolbar_GYA = new Panel();
             pictureBoxTools_GYA = new PictureBox();
@@ -48,7 +49,7 @@
             ColumnPost = new DataGridViewTextBoxColumn();
             openFileDialogMain_GYA = new OpenFileDialog();
             saveFileDialogMain_GYA = new SaveFileDialog();
-            buttonSearch_GYA = new Button();
+            button1 = new Button();
             panelButtonsHelp_GYA.SuspendLayout();
             panelButtonsFunctional_GYA.SuspendLayout();
             panelToolbar_GYA.SuspendLayout();
@@ -87,6 +88,7 @@
             buttonSaveFile_GYA.TabIndex = 1;
             buttonSaveFile_GYA.Text = "Save";
             buttonSaveFile_GYA.UseVisualStyleBackColor = true;
+            buttonSaveFile_GYA.Click += buttonSaveFile_GYA_Click;
             // 
             // buttonAddFile_GYA
             // 
@@ -108,6 +110,17 @@
             panelButtonsFunctional_GYA.Size = new Size(1088, 83);
             panelButtonsFunctional_GYA.TabIndex = 1;
             // 
+            // buttonSearch_GYA
+            // 
+            buttonSearch_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSearch_GYA.Location = new Point(992, 33);
+            buttonSearch_GYA.Name = "buttonSearch_GYA";
+            buttonSearch_GYA.Size = new Size(75, 23);
+            buttonSearch_GYA.TabIndex = 0;
+            buttonSearch_GYA.Text = "Поиск";
+            buttonSearch_GYA.UseVisualStyleBackColor = true;
+            buttonSearch_GYA.Click += buttonSearch_GYA_Click;
+            // 
             // panelStatus_GYA
             // 
             panelStatus_GYA.BackColor = Color.FromArgb(212, 212, 212);
@@ -120,6 +133,7 @@
             // panelToolbar_GYA
             // 
             panelToolbar_GYA.BackColor = Color.FromArgb(173, 173, 173);
+            panelToolbar_GYA.Controls.Add(button1);
             panelToolbar_GYA.Controls.Add(pictureBoxTools_GYA);
             panelToolbar_GYA.Dock = DockStyle.Left;
             panelToolbar_GYA.Location = new Point(0, 109);
@@ -132,7 +146,7 @@
             // pictureBoxTools_GYA
             // 
             pictureBoxTools_GYA.Image = (Image)resources.GetObject("pictureBoxTools_GYA.Image");
-            pictureBoxTools_GYA.Location = new Point(0, 18);
+            pictureBoxTools_GYA.Location = new Point(3, 6);
             pictureBoxTools_GYA.Name = "pictureBoxTools_GYA";
             pictureBoxTools_GYA.Size = new Size(21, 124);
             pictureBoxTools_GYA.TabIndex = 0;
@@ -161,6 +175,7 @@
             // 
             // dataGridViewInformation_GYA
             // 
+            dataGridViewInformation_GYA.AllowUserToOrderColumns = true;
             dataGridViewInformation_GYA.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewInformation_GYA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInformation_GYA.Columns.AddRange(new DataGridViewColumn[] { ColumnKey, ColumnSurname, ColumnName, ColumnLastName, ColumnDepartament, ColumnPost });
@@ -205,15 +220,14 @@
             // 
             openFileDialogMain_GYA.FileName = "openFileDialog1";
             // 
-            // buttonSearch_GYA
+            // button1
             // 
-            buttonSearch_GYA.Location = new Point(992, 33);
-            buttonSearch_GYA.Name = "buttonSearch_GYA";
-            buttonSearch_GYA.Size = new Size(75, 23);
-            buttonSearch_GYA.TabIndex = 0;
-            buttonSearch_GYA.Text = "button1";
-            buttonSearch_GYA.UseVisualStyleBackColor = true;
-            buttonSearch_GYA.Click += buttonSearch_GYA_Click;
+            button1.Location = new Point(65, 305);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FormMain_GYA
             // 
@@ -246,13 +260,7 @@
         private Panel panelToolbar_GYA;
         private Splitter splitterTools_GYA;
         private Panel panelMainInformation_GYA;
-        private DataGridView dataGridViewInformation_GYA;
-        private DataGridViewTextBoxColumn ColumnKey;
-        private DataGridViewTextBoxColumn ColumnSurname;
-        private DataGridViewTextBoxColumn ColumnName;
-        private DataGridViewTextBoxColumn ColumnLastName;
-        private DataGridViewTextBoxColumn ColumnDepartament;
-        private DataGridViewTextBoxColumn ColumnPost;
+        public DataGridView dataGridViewInformation_GYA;
         private PictureBox pictureBoxTools_GYA;
         private Button buttonAbout_GYA;
         private Button buttonSaveFile_GYA;
@@ -260,5 +268,12 @@
         private OpenFileDialog openFileDialogMain_GYA;
         private SaveFileDialog saveFileDialogMain_GYA;
         private Button buttonSearch_GYA;
+        private DataGridViewTextBoxColumn ColumnKey;
+        private DataGridViewTextBoxColumn ColumnSurname;
+        private DataGridViewTextBoxColumn ColumnName;
+        private DataGridViewTextBoxColumn ColumnLastName;
+        private DataGridViewTextBoxColumn ColumnDepartament;
+        private DataGridViewTextBoxColumn ColumnPost;
+        private Button button1;
     }
 }

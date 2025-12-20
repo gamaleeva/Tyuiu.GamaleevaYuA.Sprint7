@@ -1,4 +1,5 @@
 using Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Lib;
+using static Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Program;
 namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 {
     public partial class FormMain_GYA : Form
@@ -9,8 +10,6 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             openFileDialogMain_GYA.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
             saveFileDialogMain_GYA.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
         }
-
-
 
         private void pictureBoxTools_GYA_Click(object sender, EventArgs e)
         {
@@ -76,6 +75,44 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 
         private void buttonSearch_GYA_Click(object sender, EventArgs e)
         {
+            FormSearch formSearch = new FormSearch();
+            formSearch.Owner = this;
+            formSearch.ShowDialog();
+
+        }
+
+        private void buttonSaveFile_GYA_Click(object sender, EventArgs e)
+        {
+            saveFileDialogMain_GYA.FileName = "OutPutFile.csv";
+            saveFileDialogMain_GYA.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialogMain_GYA.ShowDialog();
+
+            string path = saveFileDialogMain_GYA.FileName;
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            if (fileExists)
+            {
+                File.Delete(path);
+            }
+            int rows = dataGridViewInformation_GYA.RowCount;
+            int cols = dataGridViewInformation_GYA.ColumnCount;
+            string str = "";
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    if (c != cols - 1)
+                    {
+                        str = str + dataGridViewInformation_GYA.Rows[r].Cells[c].Value + ";";
+                    }
+                    else
+                    {
+                        str = str + dataGridViewInformation_GYA.Rows[r].Cells[c].Value;
+                    }
+                }
+                File.AppendAllText(path, str + Environment.NewLine);
+                str = "";
+            }
 
         }
     }

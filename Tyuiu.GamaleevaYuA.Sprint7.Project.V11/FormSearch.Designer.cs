@@ -28,86 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
             textBoxInputSearch_GYA = new TextBox();
-            button1 = new Button();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            groupBox1.SuspendLayout();
+            buttonDoSearch_GYA = new Button();
+            labelSearch_GYA = new Label();
             SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Controls.Add(textBoxInputSearch_GYA);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(516, 219);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
             // 
             // textBoxInputSearch_GYA
             // 
-            textBoxInputSearch_GYA.Location = new Point(154, 53);
+            textBoxInputSearch_GYA.Location = new Point(71, 55);
             textBoxInputSearch_GYA.Multiline = true;
             textBoxInputSearch_GYA.Name = "textBoxInputSearch_GYA";
-            textBoxInputSearch_GYA.Size = new Size(208, 44);
+            textBoxInputSearch_GYA.Size = new Size(444, 25);
             textBoxInputSearch_GYA.TabIndex = 0;
             // 
-            // button1
+            // buttonDoSearch_GYA
             // 
-            button1.Location = new Point(355, 237);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 29);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            buttonDoSearch_GYA.FlatStyle = FlatStyle.Flat;
+            buttonDoSearch_GYA.Location = new Point(390, 237);
+            buttonDoSearch_GYA.Name = "buttonDoSearch_GYA";
+            buttonDoSearch_GYA.Size = new Size(125, 29);
+            buttonDoSearch_GYA.TabIndex = 1;
+            buttonDoSearch_GYA.Text = "Выполнить поиск";
+            buttonDoSearch_GYA.UseVisualStyleBackColor = true;
+            buttonDoSearch_GYA.Click += buttonDoSearch_GYA_Click;
             // 
-            // checkBox1
+            // labelSearch_GYA
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(99, 139);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 1;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(343, 139);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(83, 19);
-            checkBox2.TabIndex = 2;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
+            labelSearch_GYA.AutoSize = true;
+            labelSearch_GYA.Location = new Point(21, 55);
+            labelSearch_GYA.Name = "labelSearch_GYA";
+            labelSearch_GYA.Size = new Size(44, 15);
+            labelSearch_GYA.TabIndex = 3;
+            labelSearch_GYA.Text = "Найти:";
             // 
             // FormSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(540, 278);
-            Controls.Add(button1);
-            Controls.Add(groupBox1);
+            Controls.Add(labelSearch_GYA);
+            Controls.Add(buttonDoSearch_GYA);
+            Controls.Add(textBoxInputSearch_GYA);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormSearch";
-            Text = "Form1";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Text = "Поиск";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBox1;
         private TextBox textBoxInputSearch_GYA;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private Button button1;
+        private Button buttonDoSearch_GYA;
+        private Label labelSearch_GYA;
     }
 }

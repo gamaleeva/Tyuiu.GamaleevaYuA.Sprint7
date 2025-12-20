@@ -13,5 +13,6 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             ApplicationConfiguration.Initialize();
             Application.Run(new FormMain_GYA());
         }
+    
     }
 }
