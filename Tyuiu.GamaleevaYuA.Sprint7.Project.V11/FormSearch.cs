@@ -15,35 +15,70 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 {
     public partial class FormSearch : Form
     {
-       
+
         public FormSearch()
         {
             InitializeComponent();
-
-            
+            comboBoxCoincidence_GYA.SelectedIndex = 0;
         }
+        static string selectedState;
 
         private void buttonDoSearch_GYA_Click(object sender, EventArgs e)
         {
             FormMain_GYA formMain = this.Owner as FormMain_GYA;
+
             if (formMain != null)
             {
-                for (int i = 0; i < formMain.dataGridViewInformation_GYA.Rows.Count - 1; i++)
+                for (int i = 0; i < formMain.dataGridViewInformation_GYA.Rows.Count; i++)
                 {
                     formMain.dataGridViewInformation_GYA.Rows[i].Visible = false;
-                    for (int c = 0; c < formMain.dataGridViewInformation_GYA.Columns.Count - 1; c++)
+                    for (int c = 0; c < formMain.dataGridViewInformation_GYA.Columns.Count; c++)
                     {
-                        if (formMain.dataGridViewInformation_GYA[c, i].Value.ToString() == textBoxInputSearch_GYA.Text)
+                        if (selectedState == "Полное совпадение")
                         {
-                            formMain.dataGridViewInformation_GYA.Rows[i].Visible = true;
-                            formMain.dataGridViewInformation_GYA.Rows[i].Cells[c].Style.BackColor = Color.Yellow;
-                            break;
+                            if (formMain.dataGridViewInformation_GYA[c, i].Value.ToString() == textBoxInputSearch_GYA.Text)
+                            {
+                                {
+                                    formMain.dataGridViewInformation_GYA.Rows[i].Visible = true;
+                                    formMain.dataGridViewInformation_GYA.Rows[i].Cells[c].Style.BackColor = Color.Yellow;
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (formMain.dataGridViewInformation_GYA[c, i].Value.ToString().Contains(textBoxInputSearch_GYA.Text))
+                            {
+                                {
+                                    formMain.dataGridViewInformation_GYA.Rows[i].Visible = true;
+                                    formMain.dataGridViewInformation_GYA.Rows[i].Cells[c].Style.BackColor = Color.Yellow;
+                                }
+                            }
                         }
                     }
                 }
-
             }
+        }
 
+        private void buttonReset_GYA_Click(object sender, EventArgs e)
+        {
+            FormMain_GYA formMain = this.Owner as FormMain_GYA;
+            if (formMain != null)
+            {
+                for (int i = 0; i < formMain.dataGridViewInformation_GYA.Rows.Count; i++)
+                {
+                    formMain.dataGridViewInformation_GYA.Rows[i].Visible = true;
+                    for (int c = 0; c < formMain.dataGridViewInformation_GYA.Columns.Count; c++)
+                    {
+                        formMain.dataGridViewInformation_GYA.Rows[i].Cells[c].Style.BackColor = Color.White;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxCoincidence_GYA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedState = comboBoxCoincidence_GYA.SelectedItem.ToString();
         }
     }
 }

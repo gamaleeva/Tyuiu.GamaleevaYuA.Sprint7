@@ -31,6 +31,8 @@
             textBoxInputSearch_GYA = new TextBox();
             buttonDoSearch_GYA = new Button();
             labelSearch_GYA = new Label();
+            buttonReset_GYA = new Button();
+            comboBoxCoincidence_GYA = new ComboBox();
             SuspendLayout();
             // 
             // textBoxInputSearch_GYA
@@ -61,11 +63,35 @@
             labelSearch_GYA.TabIndex = 3;
             labelSearch_GYA.Text = "Найти:";
             // 
+            // buttonReset_GYA
+            // 
+            buttonReset_GYA.FlatStyle = FlatStyle.Flat;
+            buttonReset_GYA.Location = new Point(21, 237);
+            buttonReset_GYA.Name = "buttonReset_GYA";
+            buttonReset_GYA.Size = new Size(128, 29);
+            buttonReset_GYA.TabIndex = 4;
+            buttonReset_GYA.Text = "Сброс";
+            buttonReset_GYA.UseVisualStyleBackColor = true;
+            buttonReset_GYA.Click += buttonReset_GYA_Click;
+            // 
+            // comboBoxCoincidence_GYA
+            // 
+            comboBoxCoincidence_GYA.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCoincidence_GYA.FormattingEnabled = true;
+            comboBoxCoincidence_GYA.Items.AddRange(new object[] { "Точное совпадение", "Частичное совпадение" });
+            comboBoxCoincidence_GYA.Location = new Point(71, 86);
+            comboBoxCoincidence_GYA.Name = "comboBoxCoincidence_GYA";
+            comboBoxCoincidence_GYA.Size = new Size(121, 23);
+            comboBoxCoincidence_GYA.TabIndex = 5;
+            comboBoxCoincidence_GYA.SelectedIndexChanged += comboBoxCoincidence_GYA_SelectedIndexChanged;
+            // 
             // FormSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(540, 278);
+            Controls.Add(comboBoxCoincidence_GYA);
+            Controls.Add(buttonReset_GYA);
             Controls.Add(labelSearch_GYA);
             Controls.Add(buttonDoSearch_GYA);
             Controls.Add(textBoxInputSearch_GYA);
@@ -82,5 +108,7 @@
         private TextBox textBoxInputSearch_GYA;
         private Button buttonDoSearch_GYA;
         private Label labelSearch_GYA;
+        private Button buttonReset_GYA;
+        private ComboBox comboBoxCoincidence_GYA;
     }
 }
