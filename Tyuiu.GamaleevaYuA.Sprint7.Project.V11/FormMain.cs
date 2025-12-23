@@ -24,12 +24,8 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             {
                 panelToolbar_GYA.Size = new System.Drawing.Size(200, 451);
 
-
-
                 for (int r = 0; r < rows - 1; r++)
                 {
-
-
 
                     for (int c = 0; c < cols; c++)
                     {
@@ -64,16 +60,9 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 
         private void buttonSearch_GYA_Click(object sender, EventArgs e)
         {
-
-            dataGridViewInformation_GYA.AllowUserToAddRows = false;
             FormSearch formSearch = new FormSearch();
             formSearch.Owner = this;
             formSearch.ShowDialog();
-            if (formSearch.DialogResult == DialogResult.Cancel)
-            {
-                dataGridViewInformation_GYA.AllowUserToAddRows = true;
-            }
-
         }
 
 
@@ -96,13 +85,32 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
                 MessageBox.Show("Нельзя удалить последнюю строку", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public string[,] LoadFromFileData(string filePath)
+        {
+            string fileData = File.ReadAllText(filePath);
+            fileData = fileData.Replace('\n', '\r');
+            string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            int rows = lines.Length;
+            int cols = lines[0].Split(';').Length;
+            string[,] arrayValues = new string[rows, cols];
+            for (int r = 0; r < rows; r++)
+            {
+                string[] line_r = lines[r].Split(';');
+                for (int c = 0; c < cols; c++)
+                {
+                    arrayValues[r, c] = line_r[c];
+
+                }
+            }
+            return arrayValues;
+        }
 
         private void loadFileToolStripMenuItem_GYA_Click(object sender, EventArgs e)
         {
             openFileDialogMain_GYA.ShowDialog();
             openFilePath = openFileDialogMain_GYA.FileName;
             arrayValues = new string[rows, cols];
-            arrayValues = ds.LoadFromFileData(openFilePath);
+            arrayValues = LoadFromFileData(openFilePath);
             rows = arrayValues.GetLength(0);
             cols = arrayValues.GetLength(1);
             dataGridViewInformation_GYA.ColumnCount = cols;
@@ -114,6 +122,18 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
                     dataGridViewInformation_GYA.Rows[r].Cells[c].Value = arrayValues[r, c];
                 }
             }
+            
+            buttonAverage_GYA.Enabled = true;
+            buttonCount_GYA.Enabled = true;
+            buttonDeleteRow_GYA.Enabled = true;
+            buttonDoFilter_GYA.Enabled = true;
+            buttonGetGraphic_GYA.Enabled = true;
+            buttonSearch_GYA.Enabled = true;
+            buttonMax_GYA.Enabled = true;
+            buttonMin_GYA.Enabled = true;
+            buttonSum_GYA.Enabled = true;
+            comboBoxSort_GYA.Enabled = true;
+            pictureBoxTools_GYA.Enabled = true;
         }
 
         private void saveFileToolStripMenuItem_GYA_Click(object sender, EventArgs e)
@@ -160,14 +180,13 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 
         private void buttonDoFilter_GYA_Click(object sender, EventArgs e)
         {
-            dataGridViewInformation_GYA.AllowUserToAddRows = false;
             for (int i = 0; i < dataGridViewInformation_GYA.Rows.Count; i++)
             {
                 dataGridViewInformation_GYA.Rows[i].Visible = false;
             }
             foreach (String str in checkedListBoxDepartament_GYA.SelectedItems)
             {
-                for (int i = 0; i < rows - 1; i++)
+                for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < cols; j++)
                     {
@@ -180,7 +199,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             }
             foreach (String str in checkedListBoxPost_GYA.SelectedItems)
             {
-                for (int i = 0; i < rows - 1; i++)
+                for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < cols; j++)
                     {
@@ -191,50 +210,58 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
                     }
                 }
             }
-            foreach (DataGridViewCell cell in dataGridViewInformation_GYA.SelectedCells)
+            try
             {
-                int numcolumn = cell.ColumnIndex;
-                var oper = comboBoxOperators_GYA.SelectedIndex;
-                for (int i = 0; i < rows - 1; i++)
+                foreach (DataGridViewCell cell in dataGridViewInformation_GYA.SelectedCells)
                 {
-                    for (int j = 0; j < cols; j++)
+                    int numcolumn = cell.ColumnIndex;
+                    var oper = comboBoxOperators_GYA.SelectedIndex;
+                    for (int i = 0; i < rows; i++)
                     {
-                        if (oper == 0 && Convert.ToDouble(arrayValues[i, j]) == Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
+                        for (int j = 0; j < cols; j++)
                         {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
-                        }
-                        else if (oper == 1 && Convert.ToDouble(arrayValues[i, j]) != Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
-                        {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
-                        }
-                        else if (oper == 2 && Convert.ToDouble(arrayValues[i, j]) > Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
-                        {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
-                        }
-                        else if (oper == 3 && Convert.ToDouble(arrayValues[i, j]) < Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
-                        {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
-                        }
-                        else if (oper == 4 && Convert.ToDouble(arrayValues[i, j]) >= Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
-                        {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
-                        }
-                        else if (oper == 5 && Convert.ToDouble(arrayValues[i, j]) <= Convert.ToDouble(textBoxFilter_GYA.Text) && numcolumn == j)
-                        {
-                            dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            if (numcolumn == j && oper == 0 && Convert.ToDouble(arrayValues[i, j]) == Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
+                            else if (numcolumn == j && oper == 1 && Convert.ToDouble(arrayValues[i, j]) != Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
+                            else if (numcolumn == j && oper == 2 && Convert.ToDouble(arrayValues[i, j]) > Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
+                            else if (numcolumn == j && oper == 3 && Convert.ToDouble(arrayValues[i, j]) < Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
+                            else if (numcolumn == j && oper == 4 && Convert.ToDouble(arrayValues[i, j]) >= Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
+                            else if (numcolumn == j && oper == 5 && Convert.ToDouble(arrayValues[i, j]) <= Convert.ToDouble(textBoxFilter_GYA.Text))
+                            {
+                                dataGridViewInformation_GYA.Rows[i].Visible = true;
+                            }
                         }
                     }
                 }
             }
-            dataGridViewInformation_GYA.AllowUserToAddRows = true;
+            catch
+            {
+                MessageBox.Show("Вы не можете отфильтровать числовым фильтром по этому столбцу", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonResetFilter_GYA_Click(object sender, EventArgs e)
         {
-            dataGridViewInformation_GYA.AllowUserToAddRows = false;
+
             for (int i = 0; i < dataGridViewInformation_GYA.Rows.Count; i++)
             {
                 dataGridViewInformation_GYA.Rows[i].Visible = true;
+                checkedListBoxDepartament_GYA.Items.Clear();
+                checkedListBoxPost_GYA.Items.Clear();
             }
         }
 
@@ -296,11 +323,13 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
 
         private void buttonCount_GYA_Click(object sender, EventArgs e)
         {
-            textBoxCount_GYA.Text = Convert.ToString(rows);
+
+            textBoxCount_GYA.Text = ds.GetCount(arrayValues);
         }
 
         private void buttonMax_GYA_Click(object sender, EventArgs e)
         {
+
             textBoxMax_GYA.Text = ds.GetMax(arrayValues);
         }
 
@@ -318,7 +347,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
         {
             textBoxAverage_GYA.Text = ds.GetAverage(arrayValues);
         }
-        
+
 
         private void buttonGetGraphic_GYA_Click(object sender, EventArgs e)
         {
@@ -338,9 +367,19 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             }
         }
 
-        private void buttonGraphic_GYA_Click(object sender, EventArgs e)
-        {
 
+        private void buttonAdd_GYA_Click(object sender, EventArgs e)
+        {
+            FormAddPerson_GYA formAdd = new FormAddPerson_GYA();
+            formAdd.Owner = this;
+            formAdd.ShowDialog();
+
+        }
+
+
+        private void forUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show( "1. Первым шагом нужно загрузить файл. Выберите на панели главного меню раздел Файл - Загрузить. \n 2. Чтобы добавить строки, нажмите на кнопку Добавить строку на инструментальной панели. Введите необходимые данные и нажмите на кнопку Добавить \n 3. Чтобы удалить строку нажмите на кнопку Удалить строку на инструментальной панели. \n 4. Чтобы отсортировать таблицу выделите ячейку в столбце, в котором хотите сделать сортировку и выберите в комбинированном списке необходимый параметр. \n 5. Чтобы воспользоваться поиском нажмите на кнопку Поиск на инструментальной панели. В новом окне выберите условие поиска и нажмите на кнопку Найти/Сбросить. \n 6. Чтобы воспользоваться фильтром нажмите на значок фильтра на панели слева. Выберите необходимые условия и нажмите на кнопку Сброс/Применить.\n 7. Чтобы вывести элементы статистики перейдите на вкладку Статистика. Нажмите на кнопки  Найти рядом с полями вывода или на кнопку Вывести график. \n 8. Чтобы сохранить файл нажмите на кнопку Файл-Сохранить на инструментальной панели. \n 9. Чтобы узнать больше о программе нажмите на кнопку Помощь-О программе", "Руководство пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

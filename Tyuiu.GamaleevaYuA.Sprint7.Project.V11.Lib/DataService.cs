@@ -43,10 +43,6 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Lib
             int rows = array.GetLength(0);
             int cols = array.GetLength(1);
 
-            if (numcol < 0 || numcol >= cols)
-            {
-                throw new ArgumentOutOfRangeException(nameof(numcol), "Column index is out of range");
-            }
 
             int[] nums = new int[rows];
             int[] indices = new int[rows];
@@ -73,25 +69,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Lib
             }
             return result;
         }
-        public string[,] LoadFromFileData(string filePath)
-        {
-            string fileData = File.ReadAllText(filePath);
-            fileData = fileData.Replace('\n', '\r');
-            string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
-            int rows = lines.Length;
-            int cols = lines[0].Split(';').Length;
-            string[,] arrayValues = new string[rows, cols];
-            for (int r = 0; r < rows; r++)
-            {
-                string[] line_r = lines[r].Split(';');
-                for (int c = 0; c < cols; c++)
-                {
-                    arrayValues[r, c] = line_r[c];
-
-                }
-            }
-            return arrayValues;
-        }
+        
         public string GetMax(string[,] array)
         {
             
@@ -142,7 +120,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Lib
                 sumSalarys += Convert.ToInt32(array[i, 8]);
 
             }
-            string res = Convert.ToString(Math.Round(sumSalarys/ array.GetUpperBound(0)+ 1, 2));
+            string res = Convert.ToString(Math.Round(sumSalarys/ (array.GetUpperBound(0) + 1), 2));
             return res;
 
         }

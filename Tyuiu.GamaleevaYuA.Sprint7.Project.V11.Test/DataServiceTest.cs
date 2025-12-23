@@ -46,20 +46,9 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Test
 
             CollectionAssert.AreEqual(wait, res);
         }
-        [TestMethod]
-        public void CheckedLoadFromFileData()
-        {
-            string filePath = @"C:\Users\Юлия\source\repos\Tyuiu.GamaleevaYuA.Sprint7\Tyuiu.GamaleevaYuA.Sprint7.Project.V11\bin\Debug\net8.0-windows\OutPutFile.csv";
-            DataService ds = new DataService();
-            string[,] res = ds.LoadFromFileData(filePath);
-            string[,] wait = {{"0001", "Обломов", "Иван", "Сергеевич", "Бухгалтерия", "Бухгалтер", "81234567890", "г. Тюмень, ул.Мельникайте 42", "25000"},
-                {"0002", "Михайлов", "Никита", "Андреевич", "Бухгалтерия", "Бухгалтер", "81234567891", "г. Тюмень, ул.Мельникайте 42", "25000"},
-                {"0003", "Носов", "Илья", "Васильевич", "Бухгалтерия", "Бухгалтер", "81234567892", "г. Тюмень, ул.Мельникайте 42", "25000"},
-                {"0004", "Андреев", "Василий", "Андреевич", "Бухгалтерия", "Бухгалтер", "81234567893", "г. Тюмень, ул.Мельникайте 42", "25000"},
-            {"", "", "", "", "", "", "" ,"", "", } };
-            CollectionAssert.AreEqual(wait, res);
+        
 
-        }
+        
         [TestMethod]
         public void ValidGetCount()
         {
@@ -142,7 +131,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Test
             {"0005", "Ключников", "Иван", "Сергеевич", "Бухгалтер", "Бухгалтерия", "81234567894", "г. Тюмень, ул. Мельникайте 42", "29000"  }};
             int[] res = ds.GetSalarys(array);
             int[] wait = { 25000, 30000, 27000, 35000, 29000 };
-            Assert.AreEqual(wait, res);
+            CollectionAssert.AreEqual(wait, res);
 
         }
         [TestMethod]
@@ -156,7 +145,7 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Test
             {"0005", "Ключников", "Иван", "Сергеевич", "Бухгалтер", "Бухгалтерия", "81234567894", "г. Тюмень, ул. Мельникайте 42", "29000"  }};
             string[] res = ds.GetPersonsNames(array);
             string[] wait = { "Обломов И.С.", "Порфирьев И.С.", "Раскольников И.С.", "Солженицын И.С.", "Ключников И.С." };
-            Assert.AreEqual(wait, res);
+            CollectionAssert.AreEqual(wait, res);
 
         }
     }

@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             textBoxInputSearch_GYA = new TextBox();
             buttonDoSearch_GYA = new Button();
             labelSearch_GYA = new Label();
             buttonReset_GYA = new Button();
             comboBoxCoincidence_GYA = new ComboBox();
+            toolTipSearch_GYA = new ToolTip(components);
             SuspendLayout();
             // 
             // textBoxInputSearch_GYA
@@ -42,6 +44,7 @@
             textBoxInputSearch_GYA.Name = "textBoxInputSearch_GYA";
             textBoxInputSearch_GYA.Size = new Size(444, 25);
             textBoxInputSearch_GYA.TabIndex = 0;
+            toolTipSearch_GYA.SetToolTip(textBoxInputSearch_GYA, "Ввод текста\r\nВведите текст для поиска\r\n");
             // 
             // buttonDoSearch_GYA
             // 
@@ -51,6 +54,7 @@
             buttonDoSearch_GYA.Size = new Size(125, 29);
             buttonDoSearch_GYA.TabIndex = 1;
             buttonDoSearch_GYA.Text = "Выполнить поиск";
+            toolTipSearch_GYA.SetToolTip(buttonDoSearch_GYA, "Выполнение поиска\r\nНажмите чтобы выполнить поиск\r\n");
             buttonDoSearch_GYA.UseVisualStyleBackColor = true;
             buttonDoSearch_GYA.Click += buttonDoSearch_GYA_Click;
             // 
@@ -71,6 +75,7 @@
             buttonReset_GYA.Size = new Size(128, 29);
             buttonReset_GYA.TabIndex = 4;
             buttonReset_GYA.Text = "Сброс";
+            toolTipSearch_GYA.SetToolTip(buttonReset_GYA, "Сброс поиска\r\nНажмите чтобы сбросить поиск\r\n\r\n");
             buttonReset_GYA.UseVisualStyleBackColor = true;
             buttonReset_GYA.Click += buttonReset_GYA_Click;
             // 
@@ -83,7 +88,14 @@
             comboBoxCoincidence_GYA.Name = "comboBoxCoincidence_GYA";
             comboBoxCoincidence_GYA.Size = new Size(121, 23);
             comboBoxCoincidence_GYA.TabIndex = 5;
+            toolTipSearch_GYA.SetToolTip(comboBoxCoincidence_GYA, "Параметры\r\nВыберите нужный параметр поиска\r\n");
             comboBoxCoincidence_GYA.SelectedIndexChanged += comboBoxCoincidence_GYA_SelectedIndexChanged;
+            // 
+            // toolTipSearch_GYA
+            // 
+            toolTipSearch_GYA.IsBalloon = true;
+            toolTipSearch_GYA.ToolTipIcon = ToolTipIcon.Info;
+            toolTipSearch_GYA.ToolTipTitle = "Подсказка";
             // 
             // FormSearch
             // 
@@ -110,5 +122,6 @@
         private Label labelSearch_GYA;
         private Button buttonReset_GYA;
         private ComboBox comboBoxCoincidence_GYA;
+        private ToolTip toolTipSearch_GYA;
     }
 }

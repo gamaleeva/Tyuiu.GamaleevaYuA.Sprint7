@@ -56,7 +56,7 @@
             // 
             // buttonOK_GYA
             // 
-            buttonOK_GYA.BackColor = Color.LightGray;
+            buttonOK_GYA.BackColor = SystemColors.ControlLight;
             buttonOK_GYA.FlatStyle = FlatStyle.Flat;
             buttonOK_GYA.Location = new Point(390, 211);
             buttonOK_GYA.Name = "buttonOK_GYA";

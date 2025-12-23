@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain_GYA));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelButtonsFunctional_GYA = new Panel();
+            buttonAdd_GYA = new Button();
             buttonGetGraphic_GYA = new Button();
             labelSort_GYA = new Label();
             comboBoxSort_GYA = new ComboBox();
@@ -65,7 +67,6 @@
             ColumnAddress = new DataGridViewTextBoxColumn();
             ColumnSalary = new DataGridViewTextBoxColumn();
             tabPageWorkers_GYA = new TabPage();
-            groupBoxStatistic_GYA = new GroupBox();
             chartSalary_GYA = new System.Windows.Forms.DataVisualization.Charting.Chart();
             groupBoxValues_GYA = new GroupBox();
             buttonAverage_GYA = new Button();
@@ -92,7 +93,8 @@
             saveFileToolStripMenuItem_GYA = new ToolStripMenuItem();
             toolStripMenuItemHelp_GYA = new ToolStripMenuItem();
             aboutToolStripMenuItem_GYA = new ToolStripMenuItem();
-            button1 = new Button();
+            forUsersToolStripMenuItem = new ToolStripMenuItem();
+            toolTipMain_GYA = new ToolTip(components);
             panelButtonsFunctional_GYA.SuspendLayout();
             panelToolbar_GYA.SuspendLayout();
             groupBoxNumberFilter_GYA.SuspendLayout();
@@ -104,7 +106,6 @@
             tabPageMain_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).BeginInit();
             tabPageWorkers_GYA.SuspendLayout();
-            groupBoxStatistic_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartSalary_GYA).BeginInit();
             groupBoxValues_GYA.SuspendLayout();
             menuStripMain_GYA.SuspendLayout();
@@ -113,7 +114,7 @@
             // panelButtonsFunctional_GYA
             // 
             panelButtonsFunctional_GYA.BackColor = Color.FromArgb(236, 236, 236);
-            panelButtonsFunctional_GYA.Controls.Add(button1);
+            panelButtonsFunctional_GYA.Controls.Add(buttonAdd_GYA);
             panelButtonsFunctional_GYA.Controls.Add(buttonGetGraphic_GYA);
             panelButtonsFunctional_GYA.Controls.Add(labelSort_GYA);
             panelButtonsFunctional_GYA.Controls.Add(comboBoxSort_GYA);
@@ -125,14 +126,32 @@
             panelButtonsFunctional_GYA.Size = new Size(1088, 83);
             panelButtonsFunctional_GYA.TabIndex = 1;
             // 
+            // buttonAdd_GYA
+            // 
+            buttonAdd_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonAdd_GYA.FlatStyle = FlatStyle.Flat;
+            buttonAdd_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonAdd_GYA.Location = new Point(590, 17);
+            buttonAdd_GYA.Name = "buttonAdd_GYA";
+            buttonAdd_GYA.Size = new Size(83, 51);
+            buttonAdd_GYA.TabIndex = 7;
+            buttonAdd_GYA.Text = "Добавить строку";
+            toolTipMain_GYA.SetToolTip(buttonAdd_GYA, "Добавление строки\r\nНажмите чтобы открыть окно создания строки\r\n");
+            buttonAdd_GYA.UseVisualStyleBackColor = true;
+            buttonAdd_GYA.Click += buttonAdd_GYA_Click;
+            // 
             // buttonGetGraphic_GYA
             // 
+            buttonGetGraphic_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonGetGraphic_GYA.Enabled = false;
             buttonGetGraphic_GYA.FlatStyle = FlatStyle.Flat;
-            buttonGetGraphic_GYA.Location = new Point(689, 17);
+            buttonGetGraphic_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonGetGraphic_GYA.Location = new Point(679, 17);
             buttonGetGraphic_GYA.Name = "buttonGetGraphic_GYA";
             buttonGetGraphic_GYA.Size = new Size(89, 51);
             buttonGetGraphic_GYA.TabIndex = 6;
             buttonGetGraphic_GYA.Text = "Вывести график";
+            toolTipMain_GYA.SetToolTip(buttonGetGraphic_GYA, "Вывод графика\r\nНажмите чтобы вывести гистограмму\r\n");
             buttonGetGraphic_GYA.UseVisualStyleBackColor = true;
             buttonGetGraphic_GYA.Click += buttonGetGraphic_GYA_Click;
             // 
@@ -140,7 +159,8 @@
             // 
             labelSort_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelSort_GYA.AutoSize = true;
-            labelSort_GYA.Location = new Point(809, 27);
+            labelSort_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelSort_GYA.Location = new Point(840, 25);
             labelSort_GYA.Name = "labelSort_GYA";
             labelSort_GYA.Size = new Size(73, 15);
             labelSort_GYA.TabIndex = 5;
@@ -149,36 +169,45 @@
             // comboBoxSort_GYA
             // 
             comboBoxSort_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBoxSort_GYA.Enabled = false;
+            comboBoxSort_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxSort_GYA.FormattingEnabled = true;
             comboBoxSort_GYA.Items.AddRange(new object[] { "По возрастанию", "По убыванию" });
-            comboBoxSort_GYA.Location = new Point(784, 45);
+            comboBoxSort_GYA.Location = new Point(818, 45);
             comboBoxSort_GYA.Name = "comboBoxSort_GYA";
             comboBoxSort_GYA.RightToLeft = RightToLeft.Yes;
             comboBoxSort_GYA.Size = new Size(121, 23);
             comboBoxSort_GYA.TabIndex = 4;
+            toolTipMain_GYA.SetToolTip(comboBoxSort_GYA, "Сортировка\r\nВыберите столбец и нужные параметры сортировки\r\n");
             comboBoxSort_GYA.SelectedIndexChanged += comboBoxSort_GYA_SelectedIndexChanged;
             // 
             // buttonDeleteRow_GYA
             // 
             buttonDeleteRow_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonDeleteRow_GYA.Enabled = false;
             buttonDeleteRow_GYA.FlatStyle = FlatStyle.Flat;
-            buttonDeleteRow_GYA.Location = new Point(911, 45);
+            buttonDeleteRow_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonDeleteRow_GYA.Location = new Point(509, 17);
             buttonDeleteRow_GYA.Name = "buttonDeleteRow_GYA";
-            buttonDeleteRow_GYA.Size = new Size(75, 23);
+            buttonDeleteRow_GYA.Size = new Size(75, 51);
             buttonDeleteRow_GYA.TabIndex = 1;
-            buttonDeleteRow_GYA.Text = "Удалить";
+            buttonDeleteRow_GYA.Text = "Удалить строку";
+            toolTipMain_GYA.SetToolTip(buttonDeleteRow_GYA, "Удаление строки\r\nНажмите чтобы удалить выделенную строку\r\n\r\n");
             buttonDeleteRow_GYA.UseVisualStyleBackColor = true;
             buttonDeleteRow_GYA.Click += buttonDeleteRow_GYA_Click;
             // 
             // buttonSearch_GYA
             // 
             buttonSearch_GYA.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSearch_GYA.Enabled = false;
             buttonSearch_GYA.FlatStyle = FlatStyle.Flat;
-            buttonSearch_GYA.Location = new Point(992, 45);
+            buttonSearch_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonSearch_GYA.Location = new Point(992, 17);
             buttonSearch_GYA.Name = "buttonSearch_GYA";
-            buttonSearch_GYA.Size = new Size(75, 23);
+            buttonSearch_GYA.Size = new Size(73, 51);
             buttonSearch_GYA.TabIndex = 0;
             buttonSearch_GYA.Text = "Поиск";
+            toolTipMain_GYA.SetToolTip(buttonSearch_GYA, "Поиск\r\nНажмите чтобы открыть окно поиска\r\n\r\n");
             buttonSearch_GYA.UseVisualStyleBackColor = true;
             buttonSearch_GYA.Click += buttonSearch_GYA_Click;
             // 
@@ -203,7 +232,7 @@
             panelToolbar_GYA.MaximumSize = new Size(200, 1000);
             panelToolbar_GYA.MinimumSize = new Size(21, 451);
             panelToolbar_GYA.Name = "panelToolbar_GYA";
-            panelToolbar_GYA.Size = new Size(21, 453);
+            panelToolbar_GYA.Size = new Size(25, 453);
             panelToolbar_GYA.TabIndex = 3;
             // 
             // groupBoxNumberFilter_GYA
@@ -295,18 +324,21 @@
             // 
             // pictureBoxTools_GYA
             // 
+            pictureBoxTools_GYA.Enabled = false;
             pictureBoxTools_GYA.Image = (Image)resources.GetObject("pictureBoxTools_GYA.Image");
-            pictureBoxTools_GYA.Location = new Point(3, 6);
+            pictureBoxTools_GYA.Location = new Point(3, 0);
             pictureBoxTools_GYA.Name = "pictureBoxTools_GYA";
-            pictureBoxTools_GYA.Size = new Size(21, 124);
+            pictureBoxTools_GYA.Size = new Size(21, 58);
+            pictureBoxTools_GYA.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxTools_GYA.TabIndex = 0;
             pictureBoxTools_GYA.TabStop = false;
+            toolTipMain_GYA.SetToolTip(pictureBoxTools_GYA, "Фильтр\r\nНажмите чтобы открыть настройки фильтра\r\n\r\n");
             pictureBoxTools_GYA.Click += pictureBoxTools_GYA_Click;
             pictureBoxTools_GYA.MouseEnter += pictureBoxTools_GYA_MouseEnter;
             // 
             // splitterTools_GYA
             // 
-            splitterTools_GYA.Location = new Point(21, 107);
+            splitterTools_GYA.Location = new Point(25, 107);
             splitterTools_GYA.Name = "splitterTools_GYA";
             splitterTools_GYA.Size = new Size(3, 453);
             splitterTools_GYA.TabIndex = 4;
@@ -317,9 +349,9 @@
             panelMainInformation_GYA.BackColor = SystemColors.ButtonHighlight;
             panelMainInformation_GYA.Controls.Add(tabControlMain_GYA);
             panelMainInformation_GYA.Dock = DockStyle.Fill;
-            panelMainInformation_GYA.Location = new Point(24, 107);
+            panelMainInformation_GYA.Location = new Point(28, 107);
             panelMainInformation_GYA.Name = "panelMainInformation_GYA";
-            panelMainInformation_GYA.Size = new Size(1064, 453);
+            panelMainInformation_GYA.Size = new Size(1060, 453);
             panelMainInformation_GYA.TabIndex = 5;
             // 
             // tabControlMain_GYA
@@ -330,7 +362,7 @@
             tabControlMain_GYA.Location = new Point(0, 0);
             tabControlMain_GYA.Name = "tabControlMain_GYA";
             tabControlMain_GYA.SelectedIndex = 0;
-            tabControlMain_GYA.Size = new Size(1064, 453);
+            tabControlMain_GYA.Size = new Size(1060, 453);
             tabControlMain_GYA.TabIndex = 4;
             // 
             // tabPageMain_GYA
@@ -339,13 +371,15 @@
             tabPageMain_GYA.Location = new Point(4, 24);
             tabPageMain_GYA.Name = "tabPageMain_GYA";
             tabPageMain_GYA.Padding = new Padding(3);
-            tabPageMain_GYA.Size = new Size(1056, 425);
+            tabPageMain_GYA.Size = new Size(1052, 425);
             tabPageMain_GYA.TabIndex = 0;
-            tabPageMain_GYA.Text = "tabPage1";
+            tabPageMain_GYA.Text = "Список";
             tabPageMain_GYA.UseVisualStyleBackColor = true;
             // 
             // dataGridViewInformation_GYA
             // 
+            dataGridViewInformation_GYA.AllowUserToAddRows = false;
+            dataGridViewInformation_GYA.AllowUserToDeleteRows = false;
             dataGridViewInformation_GYA.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewInformation_GYA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewInformation_GYA.Columns.AddRange(new DataGridViewColumn[] { ColumnKey, ColumnSurname, ColumnName, ColumnLastName, ColumnDepartament, ColumnPost, ColumnPhone, ColumnAddress, ColumnSalary });
@@ -353,76 +387,74 @@
             dataGridViewInformation_GYA.Location = new Point(3, 3);
             dataGridViewInformation_GYA.Name = "dataGridViewInformation_GYA";
             dataGridViewInformation_GYA.RowHeadersVisible = false;
-            dataGridViewInformation_GYA.Size = new Size(1050, 419);
+            dataGridViewInformation_GYA.Size = new Size(1046, 419);
             dataGridViewInformation_GYA.TabIndex = 0;
             // 
             // ColumnKey
             // 
             ColumnKey.HeaderText = "Код";
             ColumnKey.Name = "ColumnKey";
+            ColumnKey.ReadOnly = true;
             // 
             // ColumnSurname
             // 
             ColumnSurname.HeaderText = "Фамилия";
             ColumnSurname.Name = "ColumnSurname";
+            ColumnSurname.ReadOnly = true;
             // 
             // ColumnName
             // 
             ColumnName.HeaderText = "Имя";
             ColumnName.Name = "ColumnName";
+            ColumnName.ReadOnly = true;
             // 
             // ColumnLastName
             // 
             ColumnLastName.HeaderText = "Отчество";
             ColumnLastName.Name = "ColumnLastName";
+            ColumnLastName.ReadOnly = true;
             // 
             // ColumnDepartament
             // 
             ColumnDepartament.HeaderText = "Отдел";
             ColumnDepartament.Name = "ColumnDepartament";
+            ColumnDepartament.ReadOnly = true;
             // 
             // ColumnPost
             // 
             ColumnPost.HeaderText = "Должность";
             ColumnPost.Name = "ColumnPost";
+            ColumnPost.ReadOnly = true;
             // 
             // ColumnPhone
             // 
             ColumnPhone.HeaderText = "Номер телефона";
             ColumnPhone.Name = "ColumnPhone";
+            ColumnPhone.ReadOnly = true;
             // 
             // ColumnAddress
             // 
             ColumnAddress.HeaderText = "Адрес";
             ColumnAddress.Name = "ColumnAddress";
+            ColumnAddress.ReadOnly = true;
             // 
             // ColumnSalary
             // 
             ColumnSalary.HeaderText = "Оклад";
             ColumnSalary.Name = "ColumnSalary";
+            ColumnSalary.ReadOnly = true;
             // 
             // tabPageWorkers_GYA
             // 
-            tabPageWorkers_GYA.Controls.Add(groupBoxStatistic_GYA);
+            tabPageWorkers_GYA.Controls.Add(chartSalary_GYA);
+            tabPageWorkers_GYA.Controls.Add(groupBoxValues_GYA);
             tabPageWorkers_GYA.Location = new Point(4, 24);
             tabPageWorkers_GYA.Name = "tabPageWorkers_GYA";
             tabPageWorkers_GYA.Padding = new Padding(3);
-            tabPageWorkers_GYA.Size = new Size(1056, 425);
+            tabPageWorkers_GYA.Size = new Size(1052, 425);
             tabPageWorkers_GYA.TabIndex = 1;
-            tabPageWorkers_GYA.Text = "tabPage2";
+            tabPageWorkers_GYA.Text = "Статистика";
             tabPageWorkers_GYA.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxStatistic_GYA
-            // 
-            groupBoxStatistic_GYA.Controls.Add(chartSalary_GYA);
-            groupBoxStatistic_GYA.Controls.Add(groupBoxValues_GYA);
-            groupBoxStatistic_GYA.Dock = DockStyle.Fill;
-            groupBoxStatistic_GYA.Location = new Point(3, 3);
-            groupBoxStatistic_GYA.Name = "groupBoxStatistic_GYA";
-            groupBoxStatistic_GYA.Size = new Size(1050, 419);
-            groupBoxStatistic_GYA.TabIndex = 0;
-            groupBoxStatistic_GYA.TabStop = false;
-            groupBoxStatistic_GYA.Text = "Статистика";
             // 
             // chartSalary_GYA
             // 
@@ -431,14 +463,14 @@
             chartSalary_GYA.Dock = DockStyle.Fill;
             legend1.Name = "Legend1";
             chartSalary_GYA.Legends.Add(legend1);
-            chartSalary_GYA.Location = new Point(279, 19);
+            chartSalary_GYA.Location = new Point(279, 3);
             chartSalary_GYA.Name = "chartSalary_GYA";
             chartSalary_GYA.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chartSalary_GYA.Series.Add(series1);
-            chartSalary_GYA.Size = new Size(768, 397);
+            chartSalary_GYA.Size = new Size(770, 419);
             chartSalary_GYA.TabIndex = 0;
             chartSalary_GYA.Text = "chart1";
             // 
@@ -460,15 +492,16 @@
             groupBoxValues_GYA.Controls.Add(labelMax_GYA);
             groupBoxValues_GYA.Controls.Add(labelCount_GYA);
             groupBoxValues_GYA.Dock = DockStyle.Left;
-            groupBoxValues_GYA.Location = new Point(3, 19);
+            groupBoxValues_GYA.Location = new Point(3, 3);
             groupBoxValues_GYA.Name = "groupBoxValues_GYA";
-            groupBoxValues_GYA.Size = new Size(276, 397);
+            groupBoxValues_GYA.Size = new Size(276, 419);
             groupBoxValues_GYA.TabIndex = 0;
             groupBoxValues_GYA.TabStop = false;
             groupBoxValues_GYA.Text = "Показатели";
             // 
             // buttonAverage_GYA
             // 
+            buttonAverage_GYA.Enabled = false;
             buttonAverage_GYA.FlatStyle = FlatStyle.Flat;
             buttonAverage_GYA.Location = new Point(160, 341);
             buttonAverage_GYA.Name = "buttonAverage_GYA";
@@ -480,6 +513,7 @@
             // 
             // buttonSum_GYA
             // 
+            buttonSum_GYA.Enabled = false;
             buttonSum_GYA.FlatStyle = FlatStyle.Flat;
             buttonSum_GYA.Location = new Point(160, 266);
             buttonSum_GYA.Name = "buttonSum_GYA";
@@ -491,6 +525,7 @@
             // 
             // buttonMin_GYA
             // 
+            buttonMin_GYA.Enabled = false;
             buttonMin_GYA.FlatStyle = FlatStyle.Flat;
             buttonMin_GYA.Location = new Point(160, 192);
             buttonMin_GYA.Name = "buttonMin_GYA";
@@ -502,6 +537,7 @@
             // 
             // buttonMax_GYA
             // 
+            buttonMax_GYA.Enabled = false;
             buttonMax_GYA.FlatStyle = FlatStyle.Flat;
             buttonMax_GYA.Location = new Point(160, 120);
             buttonMax_GYA.Name = "buttonMax_GYA";
@@ -513,6 +549,7 @@
             // 
             // buttonCount_GYA
             // 
+            buttonCount_GYA.Enabled = false;
             buttonCount_GYA.FlatStyle = FlatStyle.Flat;
             buttonCount_GYA.Location = new Point(160, 57);
             buttonCount_GYA.Name = "buttonCount_GYA";
@@ -540,7 +577,7 @@
             // 
             // textBoxMin_GYA
             // 
-            textBoxMin_GYA.Location = new Point(28, 192);
+            textBoxMin_GYA.Location = new Point(28, 193);
             textBoxMin_GYA.Name = "textBoxMin_GYA";
             textBoxMin_GYA.ReadOnly = true;
             textBoxMin_GYA.Size = new Size(100, 23);
@@ -628,46 +665,54 @@
             // toolStripMenuItemFileActions_GYA
             // 
             toolStripMenuItemFileActions_GYA.DropDownItems.AddRange(new ToolStripItem[] { loadFileToolStripMenuItem_GYA, saveFileToolStripMenuItem_GYA });
+            toolStripMenuItemFileActions_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             toolStripMenuItemFileActions_GYA.Name = "toolStripMenuItemFileActions_GYA";
             toolStripMenuItemFileActions_GYA.Size = new Size(48, 20);
             toolStripMenuItemFileActions_GYA.Text = "Файл";
+            toolStripMenuItemFileActions_GYA.ToolTipText = "Загрузка и сохранение файлов\r\nНажмите чтобы загрузить или сохранить файл\r\n";
             // 
             // loadFileToolStripMenuItem_GYA
             // 
             loadFileToolStripMenuItem_GYA.Name = "loadFileToolStripMenuItem_GYA";
-            loadFileToolStripMenuItem_GYA.Size = new Size(133, 22);
+            loadFileToolStripMenuItem_GYA.Size = new Size(180, 22);
             loadFileToolStripMenuItem_GYA.Text = "Загрузить";
             loadFileToolStripMenuItem_GYA.Click += loadFileToolStripMenuItem_GYA_Click;
             // 
             // saveFileToolStripMenuItem_GYA
             // 
             saveFileToolStripMenuItem_GYA.Name = "saveFileToolStripMenuItem_GYA";
-            saveFileToolStripMenuItem_GYA.Size = new Size(133, 22);
+            saveFileToolStripMenuItem_GYA.Size = new Size(180, 22);
             saveFileToolStripMenuItem_GYA.Text = "Сохранить";
             saveFileToolStripMenuItem_GYA.Click += saveFileToolStripMenuItem_GYA_Click;
             // 
             // toolStripMenuItemHelp_GYA
             // 
-            toolStripMenuItemHelp_GYA.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem_GYA });
+            toolStripMenuItemHelp_GYA.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem_GYA, forUsersToolStripMenuItem });
+            toolStripMenuItemHelp_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             toolStripMenuItemHelp_GYA.Name = "toolStripMenuItemHelp_GYA";
             toolStripMenuItemHelp_GYA.Size = new Size(68, 20);
             toolStripMenuItemHelp_GYA.Text = "Помощь";
+            toolStripMenuItemHelp_GYA.ToolTipText = "Информация\r\nНажмите чтобы получить информацию о программе и руководство пользователя\r\n\r\n";
             // 
             // aboutToolStripMenuItem_GYA
             // 
             aboutToolStripMenuItem_GYA.Name = "aboutToolStripMenuItem_GYA";
-            aboutToolStripMenuItem_GYA.Size = new Size(149, 22);
+            aboutToolStripMenuItem_GYA.Size = new Size(221, 22);
             aboutToolStripMenuItem_GYA.Text = "О программе";
             aboutToolStripMenuItem_GYA.Click += aboutToolStripMenuItem_GYA_Click;
             // 
-            // button1
+            // forUsersToolStripMenuItem
             // 
-            button1.Location = new Point(555, 19);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 49);
-            button1.TabIndex = 7;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            forUsersToolStripMenuItem.Name = "forUsersToolStripMenuItem";
+            forUsersToolStripMenuItem.Size = new Size(221, 22);
+            forUsersToolStripMenuItem.Text = "Руководство пользователя";
+            forUsersToolStripMenuItem.Click += forUsersToolStripMenuItem_Click;
+            // 
+            // toolTipMain_GYA
+            // 
+            toolTipMain_GYA.IsBalloon = true;
+            toolTipMain_GYA.ToolTipIcon = ToolTipIcon.Info;
+            toolTipMain_GYA.ToolTipTitle = "Подсказка";
             // 
             // FormMain_GYA
             // 
@@ -683,7 +728,7 @@
             MainMenuStrip = menuStripMain_GYA;
             Name = "FormMain_GYA";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Спринт 7 | Вариант 11 | Гамалеева Ю.А.";
+            Text = "Спринт 7 | Отдел кадров | Вариант 11 | Гамалеева Ю.А.";
             panelButtonsFunctional_GYA.ResumeLayout(false);
             panelButtonsFunctional_GYA.PerformLayout();
             panelToolbar_GYA.ResumeLayout(false);
@@ -697,7 +742,6 @@
             tabPageMain_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).EndInit();
             tabPageWorkers_GYA.ResumeLayout(false);
-            groupBoxStatistic_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chartSalary_GYA).EndInit();
             groupBoxValues_GYA.ResumeLayout(false);
             groupBoxValues_GYA.PerformLayout();
@@ -748,7 +792,6 @@
         private ComboBox comboBoxSort_GYA;
         private DataGridViewTextBoxColumn ColumnSalary;
         private ComboBox comboBoxOperators_GYA;
-        private GroupBox groupBoxStatistic_GYA;
         private GroupBox groupBoxValues_GYA;
         private Label labelAverage_GYA;
         private Label labelSum_GYA;
@@ -768,6 +811,8 @@
         private Button buttonCount_GYA;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSalary_GYA;
         private Button buttonGetGraphic_GYA;
-        private Button button1;
+        private Button buttonAdd_GYA;
+        private ToolStripMenuItem forUsersToolStripMenuItem;
+        private ToolTip toolTipMain_GYA;
     }
 }
