@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain_GYA));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelButtonsFunctional_GYA = new Panel();
+            buttonGetGraphic_GYA = new Button();
             labelSort_GYA = new Label();
             comboBoxSort_GYA = new ComboBox();
             buttonDeleteRow_GYA = new Button();
@@ -47,7 +50,6 @@
             groupBoxDepartamentFilter_GYA = new GroupBox();
             checkedListBoxDepartament_GYA = new CheckedListBox();
             pictureBoxTools_GYA = new PictureBox();
-            bindingSourceMain_GYA = new BindingSource(components);
             splitterTools_GYA = new Splitter();
             panelMainInformation_GYA = new Panel();
             tabControlMain_GYA = new TabControl();
@@ -64,6 +66,7 @@
             ColumnSalary = new DataGridViewTextBoxColumn();
             tabPageWorkers_GYA = new TabPage();
             groupBoxStatistic_GYA = new GroupBox();
+            chartSalary_GYA = new System.Windows.Forms.DataVisualization.Charting.Chart();
             groupBoxValues_GYA = new GroupBox();
             buttonAverage_GYA = new Button();
             buttonSum_GYA = new Button();
@@ -89,20 +92,20 @@
             saveFileToolStripMenuItem_GYA = new ToolStripMenuItem();
             toolStripMenuItemHelp_GYA = new ToolStripMenuItem();
             aboutToolStripMenuItem_GYA = new ToolStripMenuItem();
-            groupBoxGraphic_GYA = new GroupBox();
+            button1 = new Button();
             panelButtonsFunctional_GYA.SuspendLayout();
             panelToolbar_GYA.SuspendLayout();
             groupBoxNumberFilter_GYA.SuspendLayout();
             groupBoxPostFilter_GYA.SuspendLayout();
             groupBoxDepartamentFilter_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSourceMain_GYA).BeginInit();
             panelMainInformation_GYA.SuspendLayout();
             tabControlMain_GYA.SuspendLayout();
             tabPageMain_GYA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).BeginInit();
             tabPageWorkers_GYA.SuspendLayout();
             groupBoxStatistic_GYA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartSalary_GYA).BeginInit();
             groupBoxValues_GYA.SuspendLayout();
             menuStripMain_GYA.SuspendLayout();
             SuspendLayout();
@@ -110,6 +113,8 @@
             // panelButtonsFunctional_GYA
             // 
             panelButtonsFunctional_GYA.BackColor = Color.FromArgb(236, 236, 236);
+            panelButtonsFunctional_GYA.Controls.Add(button1);
+            panelButtonsFunctional_GYA.Controls.Add(buttonGetGraphic_GYA);
             panelButtonsFunctional_GYA.Controls.Add(labelSort_GYA);
             panelButtonsFunctional_GYA.Controls.Add(comboBoxSort_GYA);
             panelButtonsFunctional_GYA.Controls.Add(buttonDeleteRow_GYA);
@@ -119,6 +124,17 @@
             panelButtonsFunctional_GYA.Name = "panelButtonsFunctional_GYA";
             panelButtonsFunctional_GYA.Size = new Size(1088, 83);
             panelButtonsFunctional_GYA.TabIndex = 1;
+            // 
+            // buttonGetGraphic_GYA
+            // 
+            buttonGetGraphic_GYA.FlatStyle = FlatStyle.Flat;
+            buttonGetGraphic_GYA.Location = new Point(689, 17);
+            buttonGetGraphic_GYA.Name = "buttonGetGraphic_GYA";
+            buttonGetGraphic_GYA.Size = new Size(89, 51);
+            buttonGetGraphic_GYA.TabIndex = 6;
+            buttonGetGraphic_GYA.Text = "Вывести график";
+            buttonGetGraphic_GYA.UseVisualStyleBackColor = true;
+            buttonGetGraphic_GYA.Click += buttonGetGraphic_GYA_Click;
             // 
             // labelSort_GYA
             // 
@@ -187,7 +203,7 @@
             panelToolbar_GYA.MaximumSize = new Size(200, 1000);
             panelToolbar_GYA.MinimumSize = new Size(21, 451);
             panelToolbar_GYA.Name = "panelToolbar_GYA";
-            panelToolbar_GYA.Size = new Size(200, 453);
+            panelToolbar_GYA.Size = new Size(21, 453);
             panelToolbar_GYA.TabIndex = 3;
             // 
             // groupBoxNumberFilter_GYA
@@ -290,7 +306,7 @@
             // 
             // splitterTools_GYA
             // 
-            splitterTools_GYA.Location = new Point(200, 107);
+            splitterTools_GYA.Location = new Point(21, 107);
             splitterTools_GYA.Name = "splitterTools_GYA";
             splitterTools_GYA.Size = new Size(3, 453);
             splitterTools_GYA.TabIndex = 4;
@@ -301,9 +317,9 @@
             panelMainInformation_GYA.BackColor = SystemColors.ButtonHighlight;
             panelMainInformation_GYA.Controls.Add(tabControlMain_GYA);
             panelMainInformation_GYA.Dock = DockStyle.Fill;
-            panelMainInformation_GYA.Location = new Point(203, 107);
+            panelMainInformation_GYA.Location = new Point(24, 107);
             panelMainInformation_GYA.Name = "panelMainInformation_GYA";
-            panelMainInformation_GYA.Size = new Size(885, 453);
+            panelMainInformation_GYA.Size = new Size(1064, 453);
             panelMainInformation_GYA.TabIndex = 5;
             // 
             // tabControlMain_GYA
@@ -314,7 +330,7 @@
             tabControlMain_GYA.Location = new Point(0, 0);
             tabControlMain_GYA.Name = "tabControlMain_GYA";
             tabControlMain_GYA.SelectedIndex = 0;
-            tabControlMain_GYA.Size = new Size(885, 453);
+            tabControlMain_GYA.Size = new Size(1064, 453);
             tabControlMain_GYA.TabIndex = 4;
             // 
             // tabPageMain_GYA
@@ -323,7 +339,7 @@
             tabPageMain_GYA.Location = new Point(4, 24);
             tabPageMain_GYA.Name = "tabPageMain_GYA";
             tabPageMain_GYA.Padding = new Padding(3);
-            tabPageMain_GYA.Size = new Size(877, 425);
+            tabPageMain_GYA.Size = new Size(1056, 425);
             tabPageMain_GYA.TabIndex = 0;
             tabPageMain_GYA.Text = "tabPage1";
             tabPageMain_GYA.UseVisualStyleBackColor = true;
@@ -337,7 +353,7 @@
             dataGridViewInformation_GYA.Location = new Point(3, 3);
             dataGridViewInformation_GYA.Name = "dataGridViewInformation_GYA";
             dataGridViewInformation_GYA.RowHeadersVisible = false;
-            dataGridViewInformation_GYA.Size = new Size(871, 419);
+            dataGridViewInformation_GYA.Size = new Size(1050, 419);
             dataGridViewInformation_GYA.TabIndex = 0;
             // 
             // ColumnKey
@@ -391,22 +407,40 @@
             tabPageWorkers_GYA.Location = new Point(4, 24);
             tabPageWorkers_GYA.Name = "tabPageWorkers_GYA";
             tabPageWorkers_GYA.Padding = new Padding(3);
-            tabPageWorkers_GYA.Size = new Size(877, 425);
+            tabPageWorkers_GYA.Size = new Size(1056, 425);
             tabPageWorkers_GYA.TabIndex = 1;
             tabPageWorkers_GYA.Text = "tabPage2";
             tabPageWorkers_GYA.UseVisualStyleBackColor = true;
             // 
             // groupBoxStatistic_GYA
             // 
-            groupBoxStatistic_GYA.Controls.Add(groupBoxGraphic_GYA);
+            groupBoxStatistic_GYA.Controls.Add(chartSalary_GYA);
             groupBoxStatistic_GYA.Controls.Add(groupBoxValues_GYA);
             groupBoxStatistic_GYA.Dock = DockStyle.Fill;
             groupBoxStatistic_GYA.Location = new Point(3, 3);
             groupBoxStatistic_GYA.Name = "groupBoxStatistic_GYA";
-            groupBoxStatistic_GYA.Size = new Size(871, 419);
+            groupBoxStatistic_GYA.Size = new Size(1050, 419);
             groupBoxStatistic_GYA.TabIndex = 0;
             groupBoxStatistic_GYA.TabStop = false;
             groupBoxStatistic_GYA.Text = "Статистика";
+            // 
+            // chartSalary_GYA
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartSalary_GYA.ChartAreas.Add(chartArea1);
+            chartSalary_GYA.Dock = DockStyle.Fill;
+            legend1.Name = "Legend1";
+            chartSalary_GYA.Legends.Add(legend1);
+            chartSalary_GYA.Location = new Point(279, 19);
+            chartSalary_GYA.Name = "chartSalary_GYA";
+            chartSalary_GYA.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartSalary_GYA.Series.Add(series1);
+            chartSalary_GYA.Size = new Size(768, 397);
+            chartSalary_GYA.TabIndex = 0;
+            chartSalary_GYA.Text = "chart1";
             // 
             // groupBoxValues_GYA
             // 
@@ -626,15 +660,14 @@
             aboutToolStripMenuItem_GYA.Text = "О программе";
             aboutToolStripMenuItem_GYA.Click += aboutToolStripMenuItem_GYA_Click;
             // 
-            // groupBoxGraphic_GYA
+            // button1
             // 
-            groupBoxGraphic_GYA.Dock = DockStyle.Fill;
-            groupBoxGraphic_GYA.Location = new Point(279, 19);
-            groupBoxGraphic_GYA.Name = "groupBoxGraphic_GYA";
-            groupBoxGraphic_GYA.Size = new Size(589, 397);
-            groupBoxGraphic_GYA.TabIndex = 1;
-            groupBoxGraphic_GYA.TabStop = false;
-            groupBoxGraphic_GYA.Text = "groupBox1";
+            button1.Location = new Point(555, 19);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 49);
+            button1.TabIndex = 7;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FormMain_GYA
             // 
@@ -659,13 +692,13 @@
             groupBoxPostFilter_GYA.ResumeLayout(false);
             groupBoxDepartamentFilter_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxTools_GYA).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSourceMain_GYA).EndInit();
             panelMainInformation_GYA.ResumeLayout(false);
             tabControlMain_GYA.ResumeLayout(false);
             tabPageMain_GYA.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformation_GYA).EndInit();
             tabPageWorkers_GYA.ResumeLayout(false);
             groupBoxStatistic_GYA.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartSalary_GYA).EndInit();
             groupBoxValues_GYA.ResumeLayout(false);
             groupBoxValues_GYA.PerformLayout();
             menuStripMain_GYA.ResumeLayout(false);
@@ -694,7 +727,6 @@
         private ToolStripMenuItem aboutToolStripMenuItem_GYA;
         private GroupBox groupBoxPostFilter_GYA;
         private GroupBox groupBoxDepartamentFilter_GYA;
-        private BindingSource bindingSourceMain_GYA;
         private GroupBox groupBoxNumberFilter_GYA;
         private TextBox textBoxFilter_GYA;
         private CheckedListBox checkedListBoxDepartament_GYA;
@@ -734,6 +766,8 @@
         private Button buttonMin_GYA;
         private Button buttonMax_GYA;
         private Button buttonCount_GYA;
-        private GroupBox groupBoxGraphic_GYA;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSalary_GYA;
+        private Button buttonGetGraphic_GYA;
+        private Button button1;
     }
 }

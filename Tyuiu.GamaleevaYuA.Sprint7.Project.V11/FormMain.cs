@@ -1,5 +1,7 @@
+using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Lib;
 using static Tyuiu.GamaleevaYuA.Sprint7.Project.V11.Program;
 namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
@@ -291,28 +293,52 @@ namespace Tyuiu.GamaleevaYuA.Sprint7.Project.V11
             }
         }
 
-       
+
         private void buttonCount_GYA_Click(object sender, EventArgs e)
         {
-
+            textBoxCount_GYA.Text = Convert.ToString(rows);
         }
 
         private void buttonMax_GYA_Click(object sender, EventArgs e)
         {
-
+            textBoxMax_GYA.Text = ds.GetMax(arrayValues);
         }
 
         private void buttonMin_GYA_Click(object sender, EventArgs e)
         {
-
+            textBoxMin_GYA.Text = ds.GetMin(arrayValues);
         }
 
         private void buttonSum_GYA_Click(object sender, EventArgs e)
         {
-
+            textBoxSum_GYA.Text = ds.GetSum(arrayValues);
         }
 
         private void buttonAverage_GYA_Click(object sender, EventArgs e)
+        {
+            textBoxAverage_GYA.Text = ds.GetAverage(arrayValues);
+        }
+        
+
+        private void buttonGetGraphic_GYA_Click(object sender, EventArgs e)
+        {
+
+            this.chartSalary_GYA.ChartAreas[0].AxisX.Title = "Работник";
+            this.chartSalary_GYA.ChartAreas[0].AxisY.Title = "Оклад";
+            chartSalary_GYA.Series[0].Points.Clear();
+            chartSalary_GYA.Titles.Clear();
+            chartSalary_GYA.Titles.Add("Размеры окладов");
+            chartSalary_GYA.Series[0].ChartType = SeriesChartType.Column;
+            string[] persons = ds.GetPersonsNames(arrayValues);
+            int[] salaries = ds.GetSalarys(arrayValues);
+            for (int i = 0; i < persons.Length; i++)
+            {
+                Series series = this.chartSalary_GYA.Series.Add(persons[i]);
+                series.Points.Add(salaries[i]);
+            }
+        }
+
+        private void buttonGraphic_GYA_Click(object sender, EventArgs e)
         {
 
         }
