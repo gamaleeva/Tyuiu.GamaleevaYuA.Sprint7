@@ -133,10 +133,10 @@
             buttonAdd_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonAdd_GYA.Location = new Point(590, 17);
             buttonAdd_GYA.Name = "buttonAdd_GYA";
-            buttonAdd_GYA.Size = new Size(83, 51);
+            buttonAdd_GYA.Size = new Size(100, 51);
             buttonAdd_GYA.TabIndex = 7;
-            buttonAdd_GYA.Text = "Добавить строку";
-            toolTipMain_GYA.SetToolTip(buttonAdd_GYA, "Добавление строки\r\nНажмите чтобы открыть окно создания строки\r\n");
+            buttonAdd_GYA.Text = "Редактировать строку\r\n";
+            toolTipMain_GYA.SetToolTip(buttonAdd_GYA, "Редактирование строки\r\nНажмите чтобы открыть окно создания и редактирования строки\r\n\r\n");
             buttonAdd_GYA.UseVisualStyleBackColor = true;
             buttonAdd_GYA.Click += buttonAdd_GYA_Click;
             // 
@@ -146,7 +146,7 @@
             buttonGetGraphic_GYA.Enabled = false;
             buttonGetGraphic_GYA.FlatStyle = FlatStyle.Flat;
             buttonGetGraphic_GYA.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonGetGraphic_GYA.Location = new Point(679, 17);
+            buttonGetGraphic_GYA.Location = new Point(696, 17);
             buttonGetGraphic_GYA.Name = "buttonGetGraphic_GYA";
             buttonGetGraphic_GYA.Size = new Size(89, 51);
             buttonGetGraphic_GYA.TabIndex = 6;
@@ -232,7 +232,7 @@
             panelToolbar_GYA.MaximumSize = new Size(200, 1000);
             panelToolbar_GYA.MinimumSize = new Size(21, 451);
             panelToolbar_GYA.Name = "panelToolbar_GYA";
-            panelToolbar_GYA.Size = new Size(25, 453);
+            panelToolbar_GYA.Size = new Size(29, 453);
             panelToolbar_GYA.TabIndex = 3;
             // 
             // groupBoxNumberFilter_GYA
@@ -338,7 +338,7 @@
             // 
             // splitterTools_GYA
             // 
-            splitterTools_GYA.Location = new Point(25, 107);
+            splitterTools_GYA.Location = new Point(29, 107);
             splitterTools_GYA.Name = "splitterTools_GYA";
             splitterTools_GYA.Size = new Size(3, 453);
             splitterTools_GYA.TabIndex = 4;
@@ -349,9 +349,9 @@
             panelMainInformation_GYA.BackColor = SystemColors.ButtonHighlight;
             panelMainInformation_GYA.Controls.Add(tabControlMain_GYA);
             panelMainInformation_GYA.Dock = DockStyle.Fill;
-            panelMainInformation_GYA.Location = new Point(28, 107);
+            panelMainInformation_GYA.Location = new Point(32, 107);
             panelMainInformation_GYA.Name = "panelMainInformation_GYA";
-            panelMainInformation_GYA.Size = new Size(1060, 453);
+            panelMainInformation_GYA.Size = new Size(1056, 453);
             panelMainInformation_GYA.TabIndex = 5;
             // 
             // tabControlMain_GYA
@@ -362,7 +362,7 @@
             tabControlMain_GYA.Location = new Point(0, 0);
             tabControlMain_GYA.Name = "tabControlMain_GYA";
             tabControlMain_GYA.SelectedIndex = 0;
-            tabControlMain_GYA.Size = new Size(1060, 453);
+            tabControlMain_GYA.Size = new Size(1056, 453);
             tabControlMain_GYA.TabIndex = 4;
             // 
             // tabPageMain_GYA
@@ -451,7 +451,7 @@
             tabPageWorkers_GYA.Location = new Point(4, 24);
             tabPageWorkers_GYA.Name = "tabPageWorkers_GYA";
             tabPageWorkers_GYA.Padding = new Padding(3);
-            tabPageWorkers_GYA.Size = new Size(1052, 425);
+            tabPageWorkers_GYA.Size = new Size(1048, 425);
             tabPageWorkers_GYA.TabIndex = 1;
             tabPageWorkers_GYA.Text = "Статистика";
             tabPageWorkers_GYA.UseVisualStyleBackColor = true;
@@ -470,7 +470,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chartSalary_GYA.Series.Add(series1);
-            chartSalary_GYA.Size = new Size(770, 419);
+            chartSalary_GYA.Size = new Size(766, 419);
             chartSalary_GYA.TabIndex = 0;
             chartSalary_GYA.Text = "chart1";
             // 
@@ -674,14 +674,14 @@
             // loadFileToolStripMenuItem_GYA
             // 
             loadFileToolStripMenuItem_GYA.Name = "loadFileToolStripMenuItem_GYA";
-            loadFileToolStripMenuItem_GYA.Size = new Size(180, 22);
+            loadFileToolStripMenuItem_GYA.Size = new Size(133, 22);
             loadFileToolStripMenuItem_GYA.Text = "Загрузить";
             loadFileToolStripMenuItem_GYA.Click += loadFileToolStripMenuItem_GYA_Click;
             // 
             // saveFileToolStripMenuItem_GYA
             // 
             saveFileToolStripMenuItem_GYA.Name = "saveFileToolStripMenuItem_GYA";
-            saveFileToolStripMenuItem_GYA.Size = new Size(180, 22);
+            saveFileToolStripMenuItem_GYA.Size = new Size(133, 22);
             saveFileToolStripMenuItem_GYA.Text = "Сохранить";
             saveFileToolStripMenuItem_GYA.Click += saveFileToolStripMenuItem_GYA_Click;
             // 

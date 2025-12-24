@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             groupBoxAdd_GYA = new GroupBox();
+            buttonEdit_GYA = new Button();
             buttonDoAdd_GYA = new Button();
             labelSalaryAdd_GYA = new Label();
             labelAddressAdd_GYA = new Label();
@@ -55,6 +56,7 @@
             // 
             // groupBoxAdd_GYA
             // 
+            groupBoxAdd_GYA.Controls.Add(buttonEdit_GYA);
             groupBoxAdd_GYA.Controls.Add(buttonDoAdd_GYA);
             groupBoxAdd_GYA.Controls.Add(labelSalaryAdd_GYA);
             groupBoxAdd_GYA.Controls.Add(labelAddressAdd_GYA);
@@ -81,6 +83,18 @@
             groupBoxAdd_GYA.TabIndex = 0;
             groupBoxAdd_GYA.TabStop = false;
             groupBoxAdd_GYA.Text = "Введите данные";
+            // 
+            // buttonEdit_GYA
+            // 
+            buttonEdit_GYA.FlatStyle = FlatStyle.Flat;
+            buttonEdit_GYA.Location = new Point(7, 462);
+            buttonEdit_GYA.Name = "buttonEdit_GYA";
+            buttonEdit_GYA.Size = new Size(104, 29);
+            buttonEdit_GYA.TabIndex = 19;
+            buttonEdit_GYA.Text = "Редактировать\r\n\r\n";
+            toolTipAdd_GYA.SetToolTip(buttonEdit_GYA, "Редактировать\r\nНажмите чтобы редактировать выбранную строку в таблице\r\n\r\n\r\n\r\n\r\n");
+            buttonEdit_GYA.UseVisualStyleBackColor = true;
+            buttonEdit_GYA.Click += buttonEdit_GYA_Click;
             // 
             // buttonDoAdd_GYA
             // 
@@ -212,7 +226,7 @@
             textBoxPostAdd_GYA.Name = "textBoxPostAdd_GYA";
             textBoxPostAdd_GYA.Size = new Size(338, 23);
             textBoxPostAdd_GYA.TabIndex = 4;
-            textBoxPostAdd_GYA.KeyPress += textBoxNameAdd_GYA_KeyPress;
+            textBoxPostAdd_GYA.KeyPress += textBoxDepartamentAdd_GYA_KeyPress;
             // 
             // textBoxDepartamentAdd_GYA
             // 
@@ -220,7 +234,7 @@
             textBoxDepartamentAdd_GYA.Name = "textBoxDepartamentAdd_GYA";
             textBoxDepartamentAdd_GYA.Size = new Size(338, 23);
             textBoxDepartamentAdd_GYA.TabIndex = 3;
-            textBoxDepartamentAdd_GYA.KeyPress += textBoxNameAdd_GYA_KeyPress;
+            textBoxDepartamentAdd_GYA.KeyPress += textBoxDepartamentAdd_GYA_KeyPress;
             // 
             // textBoxLastnameAdd_GYA
             // 
@@ -290,5 +304,6 @@
         private Label labelSurnameAdd_GYA;
         private Button buttonDoAdd_GYA;
         private ToolTip toolTipAdd_GYA;
+        private Button buttonEdit_GYA;
     }
 }
